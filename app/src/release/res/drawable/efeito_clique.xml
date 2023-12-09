@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/red"> <!-- Substitua com a cor desejada -->
+    <item>
+        <selector>
+            <!-- Defina o background para diferentes estados do botão aqui -->
+            <item android:state_pressed="true" android:drawable="@color/red"/>
+            <item android:drawable="@color/white"/>
+        </selector>
+    </item>
+</ripple>

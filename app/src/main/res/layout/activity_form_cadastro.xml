@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".view.FormCadastro"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/containerHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/logoappfilme"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AJUDA"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginStart="90dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ENTRAR"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"
+           />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:layout_margin="40dp"
+        android:text="Tudo pronto para \n assistir?"/>
+    <TextView
+        android:id="@+id/txtDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Informe seu email para criar ou acessar sua conta."/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/containerEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:hint="Email"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red"
+        app:boxStrokeColor="@color/blue"
+        app:hintTextColor="@color/black"
+        app:cursorColor="@color/blue"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="true"
+            android:inputType="textEmailAddress"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/containerSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:hint="Senha"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/red"
+        app:boxStrokeColor="@color/blue"
+        app:hintTextColor="@color/black"
+        app:cursorColor="@color/blue"
+        android:visibility="gone"
+        >
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="true"
+        android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VAMOS LÁ"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:padding="15dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/red"
+        />
+
+</LinearLayout>
+
+</ScrollView>
