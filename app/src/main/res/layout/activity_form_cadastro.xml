@@ -34,6 +34,7 @@
             android:contentDescription="TODO" />
 
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="AJUDA"
@@ -43,6 +44,7 @@
             android:layout_marginStart="90dp"/>
 
         <TextView
+            android:id="@+id/bteEntrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ENTRAR"
@@ -127,14 +129,27 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btCadastrar"
+        android:id="@+id/btVamosLa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="VAMOS LÁ"
         android:textSize="18sp"
         android:textColor="@color/white"
         android:padding="15dp"
+        android:visibility="visible"
         android:layout_margin="20dp"
+        android:backgroundTint="@color/red"
+        />
+    <Button
+        android:id="@+id/btContinuar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONTINUAR"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:padding="15dp"
+        android:layout_margin="20dp"
+        android:visibility="gone"
         android:backgroundTint="@color/red"
         />
 
