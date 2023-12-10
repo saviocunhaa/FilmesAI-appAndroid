@@ -9,7 +9,12 @@ import android.widget.Toast
 import com.example.appfilmes.R
 import com.example.appfilmes.databinding.ActivityFormCadastroBinding
 import com.example.appfilmes.databinding.ActivityFormLoginBinding
-import com.google.firebase.Firebase
+import com.google.firebase.FirebaseNetworkException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthEmailException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.ktx.Firebase
 
 class FormCadastro : AppCompatActivity() {
 
@@ -19,7 +24,7 @@ class FormCadastro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFormCadastroBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        Firebase
+
         binding.editEmail.requestFocus()
 
         binding.btVamosLa.setOnClickListener {
@@ -46,7 +51,7 @@ class FormCadastro : AppCompatActivity() {
             val senha = binding.editSenha.text.toString()
 
             if (!email.isEmpty() && !senha.isEmpty()){
-                Toast.makeText(this,"Cadastro realizado com sucesso", Toast.LENGTH_SHORT).show()
+                cadastro(email, senha)
             } else if (senha.isEmpty()){
                 binding.containerSenha.boxStrokeColor = Color.parseColor("#ff0000")
                 binding.containerSenha.helperText = "A senha é obrigatória"
@@ -63,13 +68,39 @@ class FormCadastro : AppCompatActivity() {
         binding.bteEntrar.setOnClickListener {
             val intent = Intent(this, FormLogin::class.java)
             startActivity(intent)
-
-
         }
+    }
+    private fun cadastro(email: String, senha: String){
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener { cadastro ->
+            if (cadastro.isSuccessful){
+                Toast.makeText(this, "Cadastro Realizado com Sucesso!", Toast.LENGTH_LONG).show()
+                navegarTelaLogin()
+            }
+        }.addOnFailureListener {
+           val erro = it
 
-
-
-
-
+            when{
+                erro is FirebaseAuthWeakPasswordException ->{
+                    binding.containerSenha.helperText = "Digite uma senha com no minino 6 caracteres"
+                    binding.containerSenha.boxStrokeColor = Color.parseColor("#ff0000")
+                }
+                erro is FirebaseAuthUserCollisionException -> {
+                    binding.containerEmail.helperText = "Essa conta já está cadastrado"
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("#ff0000")
+                }
+                erro is FirebaseNetworkException -> {
+                    binding.containerSenha.helperText = "Erro de Conexão com a internet"
+                    binding.containerSenha.boxStrokeColor = Color.parseColor("#ff0000")
+                }
+                else -> {
+                    Toast.makeText(this, "Erro ao cadastrar usuário!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+    private fun navegarTelaLogin(){
+        val intent = Intent(this, FormLogin::class.java)
+        startActivity(intent)
+        finish()
     }
 }

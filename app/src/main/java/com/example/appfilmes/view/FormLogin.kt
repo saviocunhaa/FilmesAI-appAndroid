@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import com.example.appfilmes.R
 import com.example.appfilmes.databinding.ActivityFormLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class FormLogin : AppCompatActivity() {
 
@@ -30,23 +32,23 @@ class FormLogin : AppCompatActivity() {
             val email = binding.editEmail.text.toString()
             val senha = binding.editSenha.text.toString()
 
-            //validação se o campo esta vazio
-            if (email.isEmpty()){
-                binding.containerEmail.helperText = "Preencha o Email!"
-                binding.containerEmail.boxStrokeColor = Color.parseColor("#ff0000")
 
-            } else{
-                binding.containerEmail.helperText = ""
-                binding.containerEmail.boxStrokeColor = Color.parseColor("#ffffff")
-            }
-
-            if (senha.isEmpty()){
-                binding.containerSenha.helperText = "Preencha a Senha!"
-                binding.containerSenha.boxStrokeColor = Color.parseColor("#ff0000")
-
-            } else{
-                binding.containerSenha.helperText = ""
-                binding.containerSenha.boxStrokeColor = Color.parseColor("#ffffff")
+            when{
+                email.isEmpty() -> {
+                    binding.containerEmail.helperText = "Preencha o Email!"
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("#ff0000")
+                }
+                senha.isEmpty() -> {
+                    binding.containerSenha.helperText = "Preencha a Senha!"
+                    binding.containerSenha.boxStrokeColor = Color.parseColor("#ff0000")
+                }
+                else -> {
+                    binding.containerEmail.helperText = ""
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("#ffffff")
+                    binding.containerSenha.helperText = ""
+                    binding.containerSenha.boxStrokeColor = Color.parseColor("#ffffff")
+                    autenticacao(email,senha)
+                }
             }
         }
 
@@ -55,6 +57,24 @@ class FormLogin : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        }
+    private fun autenticacao(email: String, senha: String) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha)
+            .addOnCompleteListener { autenticacao ->
+                if (autenticacao.isSuccessful){
+                    Toast.makeText(this, "Login efetuado com sucesso!",Toast.LENGTH_SHORT ).show()
+                    navegarTelaPrincipal()
+            }
+        }.addOnFailureListener {
+                Toast.makeText(this, "Usuario ou senha invalida!",Toast.LENGTH_SHORT ).show()
+            }
     }
+
+    private fun navegarTelaPrincipal(){
+        val intent = Intent(this, TelaPrincipal::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+
 }
