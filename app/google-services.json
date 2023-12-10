@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138868002587",
+    "project_id": "app-filmes-d2cbc",
+    "storage_bucket": "app-filmes-d2cbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138868002587:android:d5fa0577821f60d0800dbe",
+        "android_client_info": {
+          "package_name": "com.example.appfilmes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyPy0cdUvUQOPL3q053X_qFIs_WeBIu4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

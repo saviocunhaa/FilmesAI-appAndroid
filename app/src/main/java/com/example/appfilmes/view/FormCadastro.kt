@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.appfilmes.R
 import com.example.appfilmes.databinding.ActivityFormCadastroBinding
 import com.example.appfilmes.databinding.ActivityFormLoginBinding
+import com.google.firebase.Firebase
 
 class FormCadastro : AppCompatActivity() {
 
@@ -18,7 +19,7 @@ class FormCadastro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFormCadastroBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        Firebase
         binding.editEmail.requestFocus()
 
         binding.btVamosLa.setOnClickListener {
