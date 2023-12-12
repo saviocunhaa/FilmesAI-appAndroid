@@ -76,5 +76,16 @@ class FormLogin : AppCompatActivity() {
         finish()
     }
 
+    // MANTER O CICLO DE VIDA ATIVO DO USUARIO JA LOGADO
+    override fun onStart() {
+        super.onStart()
 
-}
+        val usuarioAtual = FirebaseAuth.getInstance().currentUser
+
+        if (usuarioAtual != null ){
+            navegarTelaPrincipal()
+        }
+
+        }
+    }
+
