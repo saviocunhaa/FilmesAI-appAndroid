@@ -38,6 +38,7 @@ android {
     viewBinding{
         enable = true
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
@@ -59,6 +60,12 @@ dependencies {
     // Add the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-auth")
+
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+
+
+
+
 
 
     // Add the dependencies for any other desired Firebase products

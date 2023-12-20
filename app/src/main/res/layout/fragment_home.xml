@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.HomeFragment"
+    >
 
-    <TextView
-        android:id="@+id/txtTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Filmes Populares"
-        android:textSize="18sp"
-        android:textColor="@color/red"
-        android:textStyle="bold"
-        android:layout_margin="20dp"
-        android:layout_gravity="center"
-        android:gravity="center"/>
+       <com.denzcoskun.imageslider.ImageSlider
+           android:id="@+id/image_slider"
+           android:layout_width="wrap_content"
+           android:layout_height="250dp"
+           app:iss_auto_cycle="true"
+           app:iss_delay="1000"
+           app:iss_period="1000"
+           app:iss_text_align="CENTER" />
 
-</FrameLayout>
+
+</RelativeLayout>
