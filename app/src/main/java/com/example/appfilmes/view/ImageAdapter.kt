@@ -14,6 +14,7 @@ class ImageAdapter(private val items: List<ImageItem>) : RecyclerView.Adapter<Im
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.imageView)
         val textView: TextView = view.findViewById(R.id.textViewTitle)
+        val favoriteIcon:ImageView = view.findViewById(R.id.favoriteIcon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,10 +28,23 @@ class ImageAdapter(private val items: List<ImageItem>) : RecyclerView.Adapter<Im
         Glide.with(holder.imageView.context)
             .load(item.imageUrl)
             .into(holder.imageView)
+
+        holder.favoriteIcon.setOnClickListener {
+
+            item.isFavorite = !item.isFavorite
+            holder.favoriteIcon.setImageResource(if (item.isFavorite) R.drawable.baseline_favorite_24_2 else R.drawable.baseline_favorite_24)
+        }
+
+
+        holder.favoriteIcon.setImageResource(if (item.isFavorite) R.drawable.baseline_favorite_24_2 else R.drawable.baseline_favorite_24)
     }
 
 
+
+
     override fun getItemCount() = items.size
+
+
 
 
 }

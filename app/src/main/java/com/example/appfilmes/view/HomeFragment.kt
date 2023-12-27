@@ -12,7 +12,9 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.appfilmes.R
 
-data class ImageItem(val imageUrl: String, val title: String)
+data class ImageItem(val imageUrl: String, val title: String, var isFavorite: Boolean = false)
+
+
 
 class HomeFragment : Fragment() {
 
@@ -84,5 +86,7 @@ class HomeFragment : Fragment() {
 
 
     }
+
+
 
 }

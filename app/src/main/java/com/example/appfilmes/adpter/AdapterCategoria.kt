@@ -25,4 +25,6 @@ class AdapterCategoria(private val context: Context, private val listaCategoria:
         val titulo = binding.txtTitulo
     }
 
+    
+
 }
