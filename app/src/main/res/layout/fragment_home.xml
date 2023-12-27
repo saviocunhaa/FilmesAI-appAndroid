@@ -29,69 +29,23 @@
                   app:iss_period="1000"
                   app:iss_text_align="CENTER" />
 
-              <TextView
-                  android:id="@+id/textViewTop10"
+              <androidx.recyclerview.widget.RecyclerView
+                  android:id="@+id/recyclerViewVerticalTitulo"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_below="@+id/image_slider"
-                  android:layout_alignParentStart="true"
-                  android:layout_alignParentEnd="true"
-                  android:layout_marginStart="20dp"
-                  android:layout_marginTop="20dp"
-                  android:layout_marginEnd="20dp"
-                  android:layout_marginBottom="20dp"
-                  android:text="Top 10"
-                  android:textSize="25dp"
-                  android:textStyle="bold" />
+                  android:layout_below="@+id/image_slider"/>
 
               <androidx.recyclerview.widget.RecyclerView
                   android:id="@+id/recyclerViewHorizontal"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_below="@+id/textViewTop10"/>
+                  android:layout_below="@+id/recyclerViewVerticalTitulo"/>
 
               <TextView
-                  android:id="@+id/textViewEdicao"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_below="@+id/recyclerViewHorizontal"
-                  android:layout_alignParentStart="true"
-                  android:layout_alignParentEnd="true"
-                  android:layout_marginStart="20dp"
-                  android:layout_marginTop="19dp"
-                  android:layout_marginEnd="16dp"
-                  android:layout_marginBottom="20dp"
-                  android:text="Edicao"
-                  android:textSize="25dp"
-                  android:textStyle="bold" />
-
-              <androidx.recyclerview.widget.RecyclerView
-                  android:id="@+id/recyclerViewHorizontal2"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_below="@+id/textViewEdicao"
-                  />
-
-              <TextView
-                  android:id="@+id/textViewAnimacao"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_below="@+id/recyclerViewHorizontal2"
-                  android:layout_alignParentStart="true"
-                  android:layout_alignParentEnd="true"
-                  android:layout_marginStart="20dp"
-                  android:layout_marginTop="19dp"
-                  android:layout_marginEnd="16dp"
-                  android:layout_marginBottom="20dp"
-                  android:text="Animação"
-                  android:textSize="25dp"
-                  android:textStyle="bold" />
-
-              <androidx.recyclerview.widget.RecyclerView
                   android:id="@+id/recyclerViewHorizontal3"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_below="@+id/textViewAnimacao"
+                  android:layout_below="@+id/recyclerViewHorizontal"
                   android:layout_marginBottom="80dp"
                   />
 

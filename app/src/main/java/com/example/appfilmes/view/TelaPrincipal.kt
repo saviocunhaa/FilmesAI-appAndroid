@@ -7,12 +7,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.denzcoskun.imageslider.ImageSlider
-import com.denzcoskun.imageslider.models.SlideModel
 import com.example.appfilmes.R
 import com.example.appfilmes.adpter.AdapterCategoria
 import com.example.appfilmes.databinding.ActivityTelaPrincipalBinding
 import com.example.appfilmes.model.Categoria
+import com.example.appfilmes.model.Filme
 import com.google.android.material.navigation.NavigationView
 
 class TelaPrincipal : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
